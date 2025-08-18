@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Ovo&display=swap');
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+@theme {
+  --color-lightHover: #fcf4ff; /* Light hover */
+  --color-darkHover: #2a004a;  /* Dark hover */
+  --color-darkTheme: #11001f;  /* Dark Theme */
+  --font-ovo: "Ovo", serif;
+  --font-outfit: "Outfit", sans-serif;
+
+  /* 🎨 Custom Shadows */
+  --shadow-black: 4px 4px 0px rgba(0, 0, 0, 0.7);
+  --shadow-white: 4px 4px 0px rgba(255, 255, 255, 0.7);
+}
+
+@layer base {
+  :root {
+    --bg: #ffffff; /* default light background */
+    --text: #000000; /* default light text */
+  }
+
+  .dark {
+    --bg: var(--color-darkTheme);   /* background for dark mode */
+    --text: var(--color-lightHover); /* text color for dark mode */
+  }
+}
