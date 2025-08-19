@@ -83,7 +83,6 @@
 // }
 
 // export default Navbar
-
 'use client';
 
 import React, { useRef, useContext, useEffect } from 'react';
@@ -92,16 +91,11 @@ import Image from 'next/image';
 import { ThemeContext } from '@/app/layout';
 import { motion, AnimatePresence } from 'framer-motion';
 
-// Variants for desktop menu
+// Animation Variants
 const navVariants = {
-  hidden: { y: -60, opacity: 0 },
+  hidden: {},
   visible: {
-    y: 0,
-    opacity: 1,
     transition: {
-      duration: 0.6,
-      ease: 'easeOut',
-      when: 'beforeChildren',
       staggerChildren: 0.15,
     },
   },
@@ -112,7 +106,6 @@ const itemVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
 };
 
-// Mobile menu slide animation
 const mobileMenuVariants = {
   hidden: { x: '100%' },
   visible: {
@@ -125,6 +118,14 @@ const mobileMenuVariants = {
   },
 };
 
+const navLinks = [
+  { label: 'Home', href: '#top' },
+  { label: 'About me', href: '#about' },
+  { label: 'Services', href: '#services' },
+  { label: 'My Work', href: '#work' },
+  { label: 'Contact me', href: '#contact' },
+];
+
 const Navbar = () => {
   const sideMenuRef = useRef();
   const { isDarkMode, setIsDarkMode } = useContext(ThemeContext);
@@ -135,7 +136,7 @@ const Navbar = () => {
 
   useEffect(() => {
     if (menuOpen && sideMenuRef.current) {
-      sideMenuRef.current.scrollTop = 0; // Prevent background scroll lock issues
+      sideMenuRef.current.scrollTop = 0;
     }
   }, [menuOpen]);
 
@@ -157,11 +158,19 @@ const Navbar = () => {
         <motion.ul
           className={`hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 bg-[var(--bg)] shadow-sm bg-opacity-50 transition-colors duration-300 
           ${isDarkMode ? 'border border-white-300' : 'border border-gray-400'}`}
+          variants={navVariants}
+          initial="hidden"
+          animate="visible"
         >
-          {['Home', 'About me', 'Services', 'My Work', 'Contact me'].map((text, idx) => (
-            <motion.li key={idx} variants={itemVariants}>
-              <a className='font-ovo' href={`#${text.toLowerCase().replace(/\s/g, '')}`}>
-                {text}
+          {navLinks.map(({ label, href }, idx) => (
+            <motion.li
+              key={idx}
+              variants={itemVariants}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <a className='font-ovo' href={href}>
+                {label}
               </a>
             </motion.li>
           ))}
@@ -212,7 +221,7 @@ const Navbar = () => {
         </div>
       </motion.nav>
 
-      {/* Mobile Menu (Animated) */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {menuOpen && (
           <motion.ul
@@ -230,16 +239,18 @@ const Navbar = () => {
                 className='w-6 cursor-pointer'
               />
             </div>
-            {['Home', 'About me', 'Services', 'My Work', 'Contact me'].map((text, idx) => (
-              <li key={idx}>
-                <a
-                  className='font-ovo'
-                  href={`#${text.toLowerCase().replace(/\s/g, '')}`}
-                  onClick={closeMenu}
-                >
-                  {text}
+
+            {navLinks.map(({ label, href }, idx) => (
+              <motion.li
+                key={idx}
+                variants={itemVariants}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <a className='font-ovo' onClick={closeMenu} href={href}>
+                  {label}
                 </a>
-              </li>
+              </motion.li>
             ))}
           </motion.ul>
         )}

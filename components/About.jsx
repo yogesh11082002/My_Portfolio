@@ -71,8 +71,8 @@
 // };
 
 // export default About;
-
 "use client";
+
 import { assets, infoList, toolsData } from "@/assets/assets";
 import Image from "next/image";
 import React, { useContext } from "react";
@@ -96,7 +96,12 @@ const About = () => {
   };
 
   return (
-    <div className="w-full px-[12%] py-10 scroll-mt-20" id="about">
+    <div
+      className={`w-full px-[8%] py-10 scroll-mt-20 ${
+        isDarkMode ? "bg-[#121212] text-white" : "bg-white text-black"
+      }`}
+      id="about"
+    >
       {/* Heading */}
       <motion.h4
         initial={{ opacity: 0, y: -20 }}
@@ -113,12 +118,12 @@ const About = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
         viewport={{ once: true }}
-        className="text-center text-5xl font-ovo"
+        className="text-center text-4xl sm:text-5xl font-ovo"
       >
         About me
       </motion.h2>
 
-      <div className="flex flex-col w-full lg:flex-row items-center gap-20 my-20">
+      <div className="flex flex-col w-full lg:flex-row items-center gap-14 my-16">
         {/* Image Section */}
         <motion.div
           initial={{ opacity: 0, x: -60 }}
@@ -140,12 +145,12 @@ const About = () => {
           whileInView="visible"
           variants={staggerContainer}
           viewport={{ once: true }}
-          className="flex-1"
+          className="flex-1 w-full"
         >
           {/* Paragraph */}
           <motion.p
             variants={fadeInUp}
-            className="text-lg font-ovo text-justify"
+            className="text-lg font-ovo text-justify leading-relaxed"
           >
             Hello! I'm a passionate web developer with a keen interest in
             creating dynamic and responsive web applications. I have experience
@@ -162,17 +167,21 @@ const About = () => {
               <motion.li
                 key={index}
                 variants={fadeInUp}
-                className="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 transition-all ease-in-out hover:shadow-black"
+                className={`rounded-xl p-6 cursor-pointer transition-all duration-500 ease-in-out hover:-translate-y-1 hover:shadow 
+                ${isDarkMode
+                    ? "border border-gray-600 bg-[#1e1e1e] text-white hover:bg-[#2a2a2a]"
+                    : "border border-gray-300 bg-white text-gray-700 hover:bg-gray-100"
+                  }`}
               >
                 <Image
-                  src={icon}
+                  src={isDarkMode ? iconDark : icon}
                   alt={title}
                   width={30}
                   height={30}
                   className="w-7 mt-3"
                 />
-                <h3 className="my-3 font-semibold text-gray-700">{title}</h3>
-                <p className="text-gray-600 text-sm">{description}</p>
+                <h3 className="my-3 font-semibold">{title}</h3>
+                <p className="text-sm">{description}</p>
               </motion.li>
             ))}
           </motion.ul>
@@ -180,7 +189,7 @@ const About = () => {
           {/* Tools */}
           <motion.h4
             variants={fadeInUp}
-            className="my-6 text-gray-700 font-ovo"
+            className={`my-6 font-ovo ${isDarkMode ? "text-white" : "text-gray-700"}`}
           >
             Tools I use
           </motion.h4>
@@ -192,7 +201,11 @@ const About = () => {
               <motion.li
                 key={index}
                 variants={fadeInUp}
-                className="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500 transition-all ease-in-out"
+                className={`flex items-center justify-center w-12 sm:w-14 aspect-square rounded-lg cursor-pointer transition-all duration-500 ease-in-out hover:-translate-y-1 
+                ${isDarkMode
+                    ? "border border-gray-600 bg-[#1e1e1e] hover:bg-[#2a2a2a]"
+                    : "border border-gray-300 bg-white hover:bg-gray-100"
+                  }`}
               >
                 <Image
                   src={tool}
