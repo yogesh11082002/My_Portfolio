@@ -96,7 +96,7 @@ const Header = () => {
   const { isDarkMode } = useContext(ThemeContext);
 
   return (
-    <div className="w-11/12 max-w-3xl text-center mx-auto min-h-screen flex flex-col items-center justify-center gap-3 pt-0 lg:pt-16 ">
+    <div className="w-11/12 max-w-3xl text-center mx-auto min-h-screen flex flex-col items-center justify-center gap-3 pt-0 lg:pt-24 ">
 
       {/* Profile Image */}
       <motion.div
