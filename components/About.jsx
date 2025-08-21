@@ -168,10 +168,12 @@ const About = () => {
                 key={index}
                 variants={fadeInUp}
                 className={`rounded-xl p-6 cursor-pointer transition-all duration-500 ease-in-out hover:-translate-y-1 hover:shadow 
-                ${isDarkMode
-                    ? "border border-gray-600 bg-[#1e1e1e] text-white hover:bg-[#2a2a2a]"
-                    : "border border-gray-300 bg-white text-gray-700 hover:bg-gray-100"
-                  }`}
+               ${isDarkMode 
+  ? 'bg-[#1e1e1e] border border-gray-600 text-white hover:bg-[#50233f] hover:shadow-[0_8px_25px_rgba(207,27,207,0.25)]' 
+  : 'bg-white border border-gray-300 text-gray-800 hover:bg-gray-300 hover:shadow-[0_4px_20px_rgba(0,0,0,0.1)]'
+}
+
+  `}
               >
                 <Image
                   src={isDarkMode ? iconDark : icon}
@@ -202,10 +204,12 @@ const About = () => {
                 key={index}
                 variants={fadeInUp}
                 className={`flex items-center justify-center w-12 sm:w-14 aspect-square rounded-lg cursor-pointer transition-all duration-500 ease-in-out hover:-translate-y-1 
-                ${isDarkMode
-                    ? "border border-gray-600 bg-[#1e1e1e] hover:bg-[#2a2a2a]"
-                    : "border border-gray-300 bg-white hover:bg-gray-100"
-                  }`}
+                ${isDarkMode 
+  ? 'bg-[#1e1e1e] border border-gray-600 text-white hover:bg-[#1a1f2e] hover:shadow-[0_8px_25px_rgba(59,130,246,0.25)]' 
+  : 'bg-white border border-gray-300 text-gray-800 hover:bg-gray-100 hover:shadow-[0_4px_20px_rgba(0,0,0,0.1)]'
+}
+
+  `}
               >
                 <Image
                   src={tool}

@@ -1,3 +1,5 @@
+
+
 "use client";
 
 import React, { useState, useContext } from "react";
@@ -118,6 +120,7 @@ const Work = () => {
       {/* Grid */}
       <motion.div
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-8 sm:gap-6 mt-10"
+
         variants={gridVariants}
         initial="hidden"
         whileInView="visible"
@@ -141,15 +144,15 @@ const Work = () => {
               whileHover={{ y: -6, scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
             >
-              <div className="relative w-full aspect-[4/3]">
-                <Image
-                  src={project.bgImage}
-                  alt={project.title}
-                  fill
-                  className="object-cover rounded-t-2xl"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                />
-              </div>
+             <div className="relative w-full aspect-[4/3]">
+  <Image
+    src={project.bgImage}
+    alt={project.title}
+    fill
+    className="object-cover rounded-t-2xl"
+    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+  />
+</div>
 
               <div className="p-5 text-left">
                 <h3
@@ -160,14 +163,9 @@ const Work = () => {
                   {project.title}
                 </h3>
                 <p
-                  className={`
-  rounded-2xl overflow-hidden shadow-md transition-all duration-300
-  ${
-    isDarkMode
-      ? "bg-gray-800 hover:bg-[#1a1f2e] hover:shadow-[0_8px_25px_rgba(59,130,246,0.25)]"
-      : "bg-white hover:bg-gray-100 hover:shadow-[0_8px_25px_rgba(0,0,0,0.15)]"
-  }
-`}
+                  className={`mt-2 text-sm ${
+                    isDarkMode ? "text-gray-400" : "text-gray-700"
+                  }`}
                 >
                   {project.description}
                 </p>
@@ -195,3 +193,4 @@ const Work = () => {
 };
 
 export default Work;
+
