@@ -1,277 +1,196 @@
+"use client";
 
-
-// 'use client';
-
-// import { assets, workData } from "@/assets/assets";
-// import Image from "next/image";
-// import React, { useContext } from "react";
-// import { ThemeContext } from "@/app/layout";
-// import { motion } from "framer-motion";
-
-// // Animation Variants
-// const containerVariants = {
-//   hidden: { opacity: 0, y: 30 },
-//   visible: {
-//     opacity: 1,
-//     y: 0,
-//     transition: {
-//       duration: 0.6,
-//       staggerChildren: 0.2,
-//     },
-//   },
-// };
-
-// const cardVariants = {
-//   hidden: { opacity: 0, y: 40 },
-//   visible: {
-//     opacity: 1,
-//     y: 0,
-//     transition: {
-//       type: "spring",
-//       stiffness: 60,
-//     },
-//   },
-// };
-
-// const Work = () => {
-//   const { isDarkMode } = useContext(ThemeContext);
-
-//   return (
-//     <motion.div
-//       id="work"
-//       className={`w-full px-[12%] py-10 scroll-mt-20 transition-colors duration-500
-//         ${isDarkMode ? 'bg-darkTheme text-lightHover' : "bg-white text-gray-800"}`}
-//       initial="hidden"
-//       whileInView="visible"
-//       viewport={{ once: true }}
-//       variants={containerVariants}
-//     >
-//       <motion.h4 className="text-center mb-2 text-lg font-ovo" variants={cardVariants}>
-//         My portfolio
-//       </motion.h4>
-//       <motion.h2 className="text-center text-5xl font-ovo" variants={cardVariants}>
-//         My latest work
-//       </motion.h2>
-//       <motion.p
-//         className={`max-w-2xl text-center mt-5 mb-12 mx-auto font-ovo ${
-//           isDarkMode ? "text-gray-300" : "text-gray-600"
-//         }`}
-//         variants={cardVariants}
-//       >
-//         Welcome to my web development portfolio! Explore a collection of projects showcasing my expertise in front-end and full stack development.
-//       </motion.p>
-
-//       <motion.div
-//         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 my-10"
-//         variants={containerVariants}
-//       >
-//         {workData.map((project, index) => (
-//           <motion.div
-//             key={index}
-//             className="aspect-square bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group"
-//             style={{ backgroundImage: `url(${project.bgImage})` }}
-//             variants={cardVariants}
-//             whileHover={{ scale: 1.02 }}
-//           >
-//             <div
-//               className={`w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 px-5 py-3 flex items-center justify-between group-hover:bottom-7 duration-500
-//                 ${isDarkMode ? "bg-gray-800 text-gray-100" : "bg-white text-gray-900"}`}
-//             >
-//               <div>
-//                 <h2 className="font-semibold">{project.title}</h2>
-//                 <p
-//                   className={`text-sm ${
-//                     isDarkMode ? "text-gray-300" : "text-gray-700"
-//                   }`}
-//                 >
-//                   {project.description}
-//                 </p>
-//               </div>
-//               <div
-//                 className={`border rounded-full w-9 aspect-square flex items-center justify-center transition duration-500 shadow-[2px_2px_0_#000]
-//                   ${
-//                     isDarkMode
-//                       ? "border-gray-300 group-hover:bg-lime-400"
-//                       : "border-black group-hover:bg-lime-300"
-//                   }`}
-//               >
-//                 <Image
-//                   src={assets.send_icon}
-//                   alt="send"
-//                   className={`w-5 ${isDarkMode ? "invert" : ""}`}
-//                 />
-//               </div>
-//             </div>
-//           </motion.div>
-//         ))}
-//       </motion.div>
-
-//       <motion.div
-//         className="flex items-center justify-center"
-//         variants={cardVariants}
-//       >
-//         <a
-//           className={`w-max flex items-center justify-center gap-2 rounded-full py-3 px-10 mx-auo my-20 border-[0.5px] duration-500
-//             ${
-//               isDarkMode
-//                 ? "text-gray-200 border-gray-300 hover:bg-gray-700"
-//                 : "text-gray-700 border-gray-700 hover:bg-lightHover"
-//             }`}
-//           href=""
-//         >
-//           Show more
-//           <Image
-//             src={assets.right_arrow_bold}
-//             alt="right arrow"
-//             className={`w-4 ${isDarkMode ? "invert" : ""}`}
-//           />
-//         </a>
-//       </motion.div>
-//     </motion.div>
-//   );
-// };
-
-// export default Work;
-
-'use client';
-
-import { assets, workData } from "@/assets/assets";
-import Image from "next/image";
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { ThemeContext } from "@/app/layout";
-import { motion } from "framer-motion";
+import Image from "next/image";
 
-// Animation Variants
-const containerVariants = {
-  hidden: { opacity: 0, y: 30 },
+import ecommerceImg from "@/public/projects/ecommerce.png";
+import blogImg from "@/public/projects/blog.png";
+import jobImg from "@/public/projects/job_portal.png";
+import portfolioImg from "@/public/projects/portfolio.png";
+import chatImg from "@/public/projects/chat.png";
+import dashboardImg from "@/public/projects/dashboard.png";
+
+// Data
+const workData = [
+  {
+    title: "Job Portal",
+    description: "An online platform connecting job seekers and employers",
+    bgImage: jobImg,
+    link: "https://job-portal-murex-omega.vercel.app/",
+  },
+  {
+    title: "Portfolio",
+    description: "My personal portfolio built with React and Next.js",
+    bgImage: portfolioImg,
+    link: "https://my-portfolio-mu-two-sh6244pouz.vercel.app/",
+  },
+  {
+    title: "E-Commerce",
+    description: "A modern e-commerce site with cart and payment integration",
+    bgImage: ecommerceImg,
+    link: "#",
+  },
+  {
+    title: "Blog",
+    description:
+      "A full-stack blog platform with authentication and CMS features",
+    bgImage: blogImg,
+    link: "#",
+  },
+  // Extra projects
+  {
+    title: "Chat App",
+    description: "Real-time chat app with WebSockets and authentication",
+    bgImage: chatImg,
+    link: "#",
+  },
+  {
+    title: "Dashboard",
+    description: "Admin dashboard with charts and analytics",
+    bgImage: dashboardImg,
+    link: "#",
+  },
+];
+
+// Variants
+const headerVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+};
+
+const gridVariants = {
+  hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      staggerChildren: 0.2,
-    },
+    transition: { staggerChildren: 0.15, delayChildren: 0.2 },
   },
 };
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 40 },
+  hidden: { opacity: 0, y: 40, scale: 0.98 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: {
-      type: "spring",
-      stiffness: 60,
-    },
+    scale: 1,
+    transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] },
+  },
+  exit: {
+    opacity: 0,
+    y: 20,
+    scale: 0.98,
+    transition: { duration: 0.25 },
   },
 };
 
 const Work = () => {
   const { isDarkMode } = useContext(ThemeContext);
+  const [showAll, setShowAll] = useState(false);
+
+  const displayedProjects = showAll ? workData : workData.slice(0, 4);
 
   return (
-    <motion.div
-      id="work"
-      className={`w-full px-[12%] py-10 scroll-mt-20 transition-colors duration-500
-        ${isDarkMode ? 'bg-darkTheme text-lightHover' : "bg-white text-gray-800"}`}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      variants={containerVariants}
+    <section
+      id="work" // ✅ Fix for navbar anchor link
+      className="w-11/12 max-w-6xl mx-auto text-center py-16 scroll-mt-20"
     >
-      <motion.h4 className="text-center mb-2 text-lg font-ovo" variants={cardVariants}>
-        My portfolio
-      </motion.h4>
-      <motion.h2 className="text-center text-5xl font-ovo" variants={cardVariants}>
-        My latest work
-      </motion.h2>
-      <motion.p
-        className={`max-w-2xl text-center mt-5 mb-12 mx-auto font-ovo ${
-          isDarkMode ? "text-gray-300" : "text-gray-600"
-        }`}
-        variants={cardVariants}
-      >
-        Welcome to my web development portfolio! Explore a collection of projects showcasing my expertise in front-end and full stack development.
-      </motion.p>
-
+      {/* Header */}
       <motion.div
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 my-10"
-        variants={containerVariants}
+        variants={headerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.4 }}
       >
-        {workData.map((project, index) => {
-          // Decide URL based on card index
-          const projectLink =
-            index === 0
-              ? "https://job-portal-murex-omega.vercel.app/"
-              : "https://my-portfolio-mu-two-sh6244pouz.vercel.app/";
+        <p className="text-lg">My portfolio</p>
+        <h2 className="text-4xl font-bold my-2">My latest work</h2>
+        <p
+          className={`max-w-2xl mx-auto ${
+            isDarkMode ? "text-gray-300" : "text-gray-700"
+          }`}
+        >
+          Welcome to my web development portfolio! Explore a collection of
+          projects showcasing my expertise in front-end and full stack
+          development.
+        </p>
+      </motion.div>
 
-          return (
+      {/* Grid */}
+      <motion.div
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-8 sm:gap-6 mt-10"
+        variants={gridVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false, amount: 0.2 }}
+      >
+        <AnimatePresence mode="popLayout">
+          {displayedProjects.map((project) => (
             <motion.a
-              key={index}
-              href={projectLink}
+              key={project.title}
+              href={project.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="aspect-square bg-no-repeat bg-cover bg-center rounded-lg relative cursor-pointer group"
-              style={{ backgroundImage: `url(${project.bgImage})` }}
+              className={`rounded-2xl overflow-hidden shadow-md transition duration-300 ${
+                isDarkMode ? "bg-gray-800" : "bg-white"
+              }`}
               variants={cardVariants}
-              whileHover={{ scale: 1.02 }}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              layout
+              whileHover={{ y: -6, scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
             >
-              <div
-                className={`w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 px-5 py-3 flex items-center justify-between group-hover:bottom-7 duration-500
-                  ${isDarkMode ? "bg-gray-800 text-gray-100" : "bg-white text-gray-900"}`}
-              >
-                <div>
-                  <h2 className="font-semibold">{project.title}</h2>
-                  <p
-                    className={`text-sm ${
-                      isDarkMode ? "text-gray-300" : "text-gray-700"
-                    }`}
-                  >
-                    {project.description}
-                  </p>
-                </div>
-                <div
-                  className={`border rounded-full w-9 aspect-square flex items-center justify-center transition duration-500 shadow-[2px_2px_0_#000]
-                    ${
-                      isDarkMode
-                        ? "border-gray-300 group-hover:bg-lime-400"
-                        : "border-black group-hover:bg-lime-300"
-                    }`}
+              <div className="relative w-full aspect-[4/3]">
+                <Image
+                  src={project.bgImage}
+                  alt={project.title}
+                  fill
+                  className="object-cover rounded-t-2xl"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                />
+              </div>
+
+              <div className="p-5 text-left">
+                <h3
+                  className={`text-lg font-semibold ${
+                    isDarkMode ? "text-white" : "text-gray-900"
+                  }`}
                 >
-                  <Image
-                    src={assets.send_icon}
-                    alt="send"
-                    className={`w-5 ${isDarkMode ? "invert" : ""}`}
-                  />
-                </div>
+                  {project.title}
+                </h3>
+                <p
+                  className={`
+  rounded-2xl overflow-hidden shadow-md transition-all duration-300
+  ${
+    isDarkMode
+      ? "bg-gray-800 hover:bg-[#1a1f2e] hover:shadow-[0_8px_25px_rgba(59,130,246,0.25)]"
+      : "bg-white hover:bg-gray-100 hover:shadow-[0_8px_25px_rgba(0,0,0,0.15)]"
+  }
+`}
+                >
+                  {project.description}
+                </p>
               </div>
             </motion.a>
-          );
-        })}
+          ))}
+        </AnimatePresence>
       </motion.div>
 
-      <motion.div
-        className="flex items-center justify-center"
-        variants={cardVariants}
+      {/* Show More / Show Less */}
+      <motion.button
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        onClick={() => setShowAll((s) => !s)}
+        className={`mt-10 px-6 py-2 rounded-full font-medium shadow-md transition ${
+          isDarkMode
+            ? "bg-lime-400 text-black hover:bg-lime-300"
+            : "bg-lime-500 text-white hover:bg-lime-600"
+        }`}
       >
-        <a
-          className={`w-max flex items-center justify-center gap-2 rounded-full py-3 px-10 mx-auto my-20 border-[0.5px] duration-500
-            ${
-              isDarkMode
-                ? "text-gray-200 border-gray-300 hover:bg-gray-700"
-                : "text-gray-700 border-gray-700 hover:bg-lightHover"
-            }`}
-          href=""
-        >
-          Show more
-          <Image
-            src={assets.right_arrow_bold}
-            alt="right arrow"
-            className={`w-4 ${isDarkMode ? "invert" : ""}`}
-          />
-        </a>
-      </motion.div>
-    </motion.div>
+        {showAll ? "Show Less" : "Show More"}
+      </motion.button>
+    </section>
   );
 };
 

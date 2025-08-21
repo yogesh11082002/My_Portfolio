@@ -106,11 +106,35 @@ export const workData = [
 ]
 
 export const serviceData = [
-    { icon: assets.web_icon, title: 'Web design', description: 'Web development is the process of building, programming...', link: '' },
-    { icon: assets.mobile_icon, title: 'Mobile app', description: 'Mobile app development involves creating software for mobile devices...', link: '' },
-    { icon: assets.ui_icon, title: 'UI/UX design', description: 'UI/UX design focuses on creating a seamless user experience...', link: '' },
-    { icon: assets.graphics_icon, title: 'Graphics design', description: 'Creative design solutions to enhance visual communication...', link: '' },
+  { 
+    icon: assets.web_icon, 
+    title: 'Web Design', 
+    description: 'Web design is the process of building visually appealing and functional websites...', 
+    moreContent: 'I create responsive, SEO-friendly, and scalable websites using modern frameworks like Next.js, React, and Tailwind CSS. My focus is on performance, accessibility, and clean UI/UX to ensure that websites not only look great but also perform flawlessly across devices.'
+  },
+ {
+  icon: assets.mobile_icon, // make sure you have a python_icon in assets
+  title: "Python Development",
+  description: "Python development covers building powerful backend systems, automation scripts, and data-driven applications...",
+  moreContent: "I specialize in developing scalable APIs, automation tools, and data-centric applications using Python. With frameworks like Django and Flask, I build secure backend systems, while also leveraging Python for scripting, web scraping, and data analysis. My workflow ensures clean, maintainable, and efficient code tailored to project needs."
+}
+,
+
+  { 
+    icon: assets.ui_icon, 
+    title: 'UI/UX Design', 
+    description: 'UI/UX design focuses on building user-friendly and engaging digital experiences...', 
+    moreContent: 'Using tools like Figma, Adobe XD, and Tailwind CSS, I design intuitive interfaces backed by user research and usability testing. My goal is to improve conversions, reduce bounce rates, and provide a delightful experience by following best practices in human-centered design.'
+  },
+ {
+  icon: assets.graphics_icon, // make sure you have a cpp_icon in assets
+  title: "Problem Solving ",
+  description: "Efficient problem solving using C++ with strong focus on Data Structures and Algorithms...",
+  moreContent: "I excel at solving complex problems using C++ by applying efficient algorithms and optimized data structures. My expertise includes competitive programming, algorithm design, and optimization techniques. With hands-on experience in solving problems on platforms like LeetCode, Codeforces, and HackerRank, I build logical thinking and write high-performance code that scales."
+}
+
 ]
+
 
 export const infoList = [
     { icon: assets.code_icon, iconDark: assets.code_icon_dark, title: 'Skills', description: ' JavaScript, MERN , Next JS , Python , C++  ' },
