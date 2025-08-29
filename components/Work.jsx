@@ -20,19 +20,19 @@ const workData = [
     title: "Job Portal",
     description: "An online platform connecting job seekers and employers",
     bgImage: jobImg,
-    link: "https://job-portal-murex-omega.vercel.app/",
+    link: "https://yogesh-job-portal.vercel.app/",
   },
   {
     title: "Portfolio",
     description: "My personal portfolio built with React and Next.js",
     bgImage: portfolioImg,
-    link: "https://my-portfolio-mu-two-sh6244pouz.vercel.app/",
+    link: "https://yogesh-sengar.vercel.app/",
   },
   {
     title: "E-Commerce",
     description: "A modern e-commerce site with cart and payment integration",
     bgImage: ecommerceImg,
-    link: "#",
+    link: "https://quickcart-yogesh.vercel.app/",
   },
   {
     title: "Blog",
