@@ -39,7 +39,7 @@ const workData = [
     description:
       "A full-stack blog platform with authentication and CMS features",
     bgImage: blogImg,
-    link: "https://netflix-clone-yogesh.vercel.app/",
+    link: "https://mymovieapp-yogesh.vercel.app/",
   },
   // Extra projects
   {
