@@ -17,12 +17,6 @@ import dashboardImg from "@/public/projects/dashboard.png";
 // Data
 const workData = [
   {
-    title: "Job Portal",
-    description: "An online platform connecting job seekers and employers",
-    bgImage: jobImg,
-    link: "https://yogesh-job-portal.vercel.app/",
-  },
-  {
     title: "Portfolio",
     description: "My personal portfolio built with React and Next.js",
     bgImage: portfolioImg,
@@ -47,6 +41,12 @@ const workData = [
     description: "Real-time chat app with WebSockets and authentication",
     bgImage: chatImg,
     link: "#",
+  },
+  {
+    title: "Job Portal",
+    description: "An online platform connecting job seekers and employers",
+    bgImage: jobImg,
+    link: "https://yogesh-job-portal.vercel.app/",
   },
   {
     title: "Dashboard",
