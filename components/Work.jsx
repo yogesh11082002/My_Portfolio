@@ -8,11 +8,11 @@ import { ThemeContext } from "@/app/layout";
 import Image from "next/image";
 
 import ecommerceImg from "@/public/projects/ecommerce.png";
-import blogImg from "@/public/projects/blog.png";
+import blogImg from "@/public/projects/echoblog.png";
 import jobImg from "@/public/projects/job_portal.png";
 import portfolioImg from "@/public/projects/portfolio.png";
 import chatImg from "@/public/projects/chat.png";
-import dashboardImg from "@/public/projects/dashboard.png";
+import NetflixImg from "@/public/projects/netflix.png";
 
 // Data
 const workData = [
@@ -33,27 +33,29 @@ const workData = [
     description:
       "A full-stack blog platform with authentication and CMS features",
     bgImage: blogImg,
+    link: "https://echoblogs-ys.vercel.app/",
+  },
+   {
+    title: " Movie Website",
+    description: " A movie website like Netflix with aunthetication",
+    bgImage: NetflixImg,
     link: "https://mymovieapp-yogesh.vercel.app/",
   },
   // Extra projects
+    {
+    title: "Job Portal",
+    description: "An online platform connecting job seekers and employers",
+    bgImage: jobImg,
+    link: "https://yogesh-job-portal.vercel.app/",
+  },
+
   {
     title: "Chat App",
     description: "Real-time chat app with WebSockets and authentication",
     bgImage: chatImg,
     link: "#",
   },
-  {
-    title: "Job Portal",
-    description: "An online platform connecting job seekers and employers",
-    bgImage: jobImg,
-    link: "https://yogesh-job-portal.vercel.app/",
-  },
-  {
-    title: "Dashboard",
-    description: "Admin dashboard with charts and analytics",
-    bgImage: dashboardImg,
-    link: "#",
-  },
+ 
 ];
 
 // Variants
