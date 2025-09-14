@@ -17,10 +17,10 @@ import NetflixImg from "@/public/projects/netflix.png";
 // Data
 const workData = [
   {
-    title: "Portfolio",
-    description: "My personal portfolio built with React and Next.js",
+    title: "Nexa AI",
+    description: "  AI-powered content generation platform",
     bgImage: portfolioImg,
-    link: "https://yogesh-sengar.vercel.app/",
+    link: "https://nexa-ai-neon-yogesh.vercel.app/",
   },
   {
     title: "E-Commerce",
@@ -33,7 +33,7 @@ const workData = [
     description:
       "A full-stack blog platform with authentication and CMS features",
     bgImage: blogImg,
-    link: "https://echoblogs-ys.vercel.app/",
+    link: "https://echoblog-yogesh.vercel.app/",
   },
    {
     title: " Movie Website",
