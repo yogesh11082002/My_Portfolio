@@ -11,7 +11,7 @@ import ecommerceImg from "@/public/projects/ecommerce.png";
 import blogImg from "@/public/projects/echoblog.png";
 import jobImg from "@/public/projects/job_portal.png";
 import portfolioImg from "@/public/projects/portfolio.png";
-import chatImg from "@/public/projects/chat.png";
+import nexaImg from "@/public/projects/nexa.png";
 import NetflixImg from "@/public/projects/netflix.png";
 
 // Data
@@ -19,7 +19,7 @@ const workData = [
   {
     title: "Nexa AI",
     description: "  AI-powered content generation platform",
-    bgImage: portfolioImg,
+    bgImage: nexaImg,
     link: "https://nexa-ai-neon-yogesh.vercel.app/",
   },
   {
@@ -50,10 +50,10 @@ const workData = [
   },
 
   {
-    title: "Chat App",
-    description: "Real-time chat app with WebSockets and authentication",
-    bgImage: chatImg,
-    link: "#",
+    title: "Portfolio",
+    description: " My personal portfolio website to showcase my projects and skills",
+    bgImage: portfolioImg,
+    link: "https://yogesh-sengar.vercel.app/",
   },
  
 ];

@@ -79,7 +79,7 @@ const Header = () => {
           initial={{ y: 40, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.7, delay: 1.4 }}
-          href="/sample-resume.pdf"
+          href="/yogesh-resume.pdf"
           download
           className={`flex items-center gap-2 px-10 py-3 border rounded-full font-ovo shadow-md hover:scale-105 transition-transform duration-300
             ${isDarkMode
