@@ -23,13 +23,13 @@ const workData = [
     link: "https://nexa-ai-neon-yogesh.vercel.app/",
   },
   {
-    title: "E-Commerce",
+    title: "Quickcart",
     description: "A modern e-commerce site with cart and payment integration",
     bgImage: ecommerceImg,
     link: "https://quickcart-yogesh.vercel.app/",
   },
   {
-    title: "Blog",
+    title: "Echolog",
     description:
       "A full-stack blog platform with authentication and CMS features",
     bgImage: blogImg,
